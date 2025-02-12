@@ -2,11 +2,30 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>판다마켓</title>
-    <link rel="stylesheet" href="reset.css" />
-    <link rel="stylesheet" href="common.css" />
-    <link rel="stylesheet" href="style.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>판다마켓</title>
+<link rel="stylesheet" href="reset.css" />
+<link rel="stylesheet" href="common.css" />
+<link rel="stylesheet" href="index.css" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pandamarket.com/">
+<meta property="og:title" content="판다마켓">
+<meta property="og:description" content="일상에서 모든 물건을 거래해보세요">
+<meta property="og:image" content="https://pandamarket.com/img/panda_icon.png">
+<meta property="og:site_name" content="판다마켓">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://pandamarket.com/">
+<meta property="twitter:title" content="판다마켓">
+<meta property="twitter:description" content="일상에서 모든 물건을 거래해보세요">
+<meta property="twitter:image" content="https://pandamarket.com/img/panda_icon.png">
+<meta property="twitter:site" content="@pandamarket">
+<meta property="twitter:creator" content="@pandamarket">
+
+
   </head>
   <body>
     <header>
@@ -16,7 +35,7 @@
           <a class="logo__title" href="/">판다마켓</a>
         </div>
         <div class="login__btn">
-          <a class="login__btn__link" href="/login.html">로그인</a>
+          <a class="login__btn__link" href="/page/login.html">로그인</a>
         </div>
       </div>
     </header>
@@ -30,17 +49,18 @@
 
         <div class="banner__right">
           <img src="./img/Img_home_top.png" alt="배너 이미지" />
-        </div>
       </div>
     </section>
 
     <section class="main">
       <div class="main__content">
-        <img src="./img/Img_home_01.png" alt="인기 상품 이미지" />
+        <div class="main__img__wrapper">
+          <img src="./img/Img_home_01.png" alt="인기 상품 이미지" />
+        </div>
         <div class="main__headline">
           <span class="main__headline__title">Hot Item</span>
           <span class="main__headline__text"
-            >인기 상품을 <br />
+            >인기 상품을 
             확인해 보세요</span
           >
           <span class="main__headline__subtext"
@@ -50,38 +70,40 @@
         </div>
       </div>
     </section>
-
-    <section class="main">
-      <div class="main__content">
+    <section class="main" id="search-section">
+      <div class="main__content" id="search-content">
+        <div class="main__img__wrapper">
+          <img src="./img/Img_home_02.png" alt="검색 이미지" id="search-image" />
+        </div>
         <div
           class="main__headline"
-          style="text-align: right; margin-right: 60px"
+          id="search-headline"
         >
-          <span class="main__headline__title">Search</span>
-          <span class="main__headline__text"
-            >구매를 원하는 <br />
-            상품을 검색하세요</span
-          >
-          <span class="main__headline__subtext"
-            >구매하고 싶은 물품은 검색해서 <br />
+          <span class="main__headline__title" id="search-title">Search</span>
+          <span class="main__headline__text" id="search-text">
+            구매를 원하는상품을 검색하세요
+          </span>
+          <span class="main__headline__subtext" id="search-subtext"
+            >구매하고 싶은 물품은 검색해서<br />
             쉽게 찾아보세요</span
           >
         </div>
-        <img src="./img/Img_home_02.png" alt="검색 이미지" />
       </div>
     </section>
 
     <section class="main">
       <div class="main__content">
-        <img src="./img/Img_home_03.png" alt="등록 이미지" />
+        <div class="main__img__wrapper">
+          <img src="./img/Img_home_03.png" alt="등록 이미지" />
+        </div>
         <div class="main__headline">
           <span class="main__headline__title">Register</span>
           <span class="main__headline__text"
-            >판매를 원하는 <br />
+            >판매를 원하는
             상품을 등록하세요</span
           >
           <span class="main__headline__subtext"
-            >어떤 물건이든 판매하고 싶은 상품을 <br />
+            >어떤 물건이든 판매하고 싶은 상품을
             쉽게 등록하세요</span
           >
         </div>

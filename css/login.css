@@ -1,0 +1,263 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section {
+  width: 100%;
+  height: 100vh;
+
+  padding: 0 16px;
+}
+
+.login__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 100%;
+}
+
+.login__title__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 40px;
+}
+
+.login__title__container img {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.login__title__container a {
+  font-size: 2.5rem;
+  font-family: 'ROKAF Sans';
+  font-weight: 700;
+
+  margin-left: 20px;
+
+  color: var(--primary-color);
+}
+
+.input__container {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  max-width: 400px;
+
+  gap: 20px;
+}
+
+.input__box {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.input__label {
+  color: #1f2937;
+  font-weight: bold;
+}
+
+.input__box input {
+  width: 100%;
+  height: 56px;
+
+  border: none;
+  border-radius: 12px;
+
+  background-color: #f3f4f6;
+
+  padding: 15px;
+}
+
+.input__box input:focus {
+  border: 1px solid var(--primary-color);
+  outline: none;
+}
+
+/* 검색 */
+.password-wrapper {
+  position: relative;
+  display: flex;
+}
+
+.password-wrapper button {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 50px;
+  height: 100%;
+
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  color: #979797;
+}
+
+.login__button {
+  height: 56px;
+
+  border: none;
+  border-radius: 40px;
+
+  font-size: 1.2rem;
+
+  color: #f3f4f6;
+  background-color: #9ca3af;
+
+  transition: background-color 0.3s ease;
+
+  cursor: not-allowed;
+}
+
+.validation__message.email,
+.validation__message.pw {
+  display: block;
+  color: var(--text-red);
+  font-weight: bold;
+
+  font-size: 0.8rem;
+
+  margin-left: 15px;
+}
+
+/* 두 input이 모두 유효할 때만 버튼 스타일 변경 */
+/* 이부분은 검색 */
+.input__container:has(.input-email:valid):has(.input-pw:valid) .login__button {
+  background-color: var(--primary-color);
+  cursor: pointer;
+}
+
+.social__login__container {
+  width: 100%;
+  height: 74px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: #e6f2ff;
+
+  padding: 0 20px;
+
+  border-radius: 8px;
+}
+
+.social__login__container div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 16px;
+}
+
+.signup__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+
+  gap: 10px;
+}
+
+.signup__container a {
+  color: #3692ff;
+  text-decoration: underline;
+}
+
+.login__popup__bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0 16px;
+}
+
+.login__popup__container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  max-width: 400px;
+  height: 220px;
+
+  background-color: white;
+
+  border-radius: 8px;
+
+  padding: 24px;
+}
+
+.login__popup__container span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 60%;
+
+  font-size: 1rem;
+  color: #1f2937;
+
+  padding-top: 24px;
+}
+
+.login__popup__container button {
+  background-color: var(--primary-color);
+  color: white;
+
+  width: 120px;
+  height: 48px;
+
+  border: none;
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  transition: background-color 0.3s ease;
+}
+
+.login__popup__container button:hover {
+  background-color: var(--highlight-color);
+}
+
+@media screen and (min-width: 744px) {
+  section {
+    width: 520px;
+  }
+
+  .input__container {
+    max-width: none;
+  }
+
+  .login__popup__container {
+    width: 520px;
+    max-width: none;
+
+    height: 250px;
+  }
+
+  .login__popup__container button {
+    align-self: flex-end;
+  }
+}
