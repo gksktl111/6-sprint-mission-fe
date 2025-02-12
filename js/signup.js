@@ -1,7 +1,7 @@
-const emailInput = document.querySelector('.input-email');
-const nicknameInput = document.querySelector('.input-nickname');
-const passwordInput = document.querySelector('.input-pw');
-const passwordConfirmInput = document.querySelector('.input-pw-confirm');
+const emailInput = document.querySelector('.input__email');
+const nicknameInput = document.querySelector('.input__nickname');
+const passwordInput = document.querySelector('.input__pw');
+const passwordConfirmInput = document.querySelector('.input__pw__confirm');
 const emailValidationMessage = document.querySelector(
   '.validation__message.email'
 );

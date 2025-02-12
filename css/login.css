@@ -6,9 +6,33 @@ body {
 
 section {
   width: 100%;
-  height: 100vh;
+  height: 100%;
 
   padding: 0 16px;
+}
+
+.logo__container {
+  position: relative;
+  top: 100px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo__container img {
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.logo__container a {
+  font-size: 2.5rem;
+  font-family: 'ROKAF Sans';
+  font-weight: 700;
+
+  margin-left: 20px;
+
+  color: var(--primary-color);
 }
 
 .login__container {
@@ -18,29 +42,6 @@ section {
   align-items: center;
 
   height: 100%;
-}
-
-.login__title__container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  margin-bottom: 40px;
-}
-
-.login__title__container img {
-  width: 3.5rem;
-  height: 3.5rem;
-}
-
-.login__title__container a {
-  font-size: 2.5rem;
-  font-family: 'ROKAF Sans';
-  font-weight: 700;
-
-  margin-left: 20px;
-
-  color: var(--primary-color);
 }
 
 .input__container {
