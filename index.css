@@ -422,4 +422,8 @@ footer > div {
     width: 500px;
     text-align: left;
   }
+
+  footer > div {
+    max-width: 1200px;
+  }
 }
