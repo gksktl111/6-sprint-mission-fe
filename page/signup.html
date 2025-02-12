@@ -20,7 +20,7 @@
         <a href="/">판다마켓</a>
       </div>
       <div class="signup__container">
-        <form class="input__container">
+        <div class="input__container">
           <div class="input__box">
             <span>이메일</span>
             <input
@@ -37,7 +37,7 @@
               type="text"
               placeholder="닉네임을 입력해주세요"
               required
-              class="input-nickname"
+              class="input__nickname"
             />
           </div>
           <div class="input__box">
@@ -47,6 +47,7 @@
                 type="password"
                 placeholder="비밀번호를 입력해주세요"
                 required
+                minlength="8"
                 class="input__pw"
               />
               <button class="eye__icon">
@@ -62,6 +63,7 @@
                 type="password"
                 placeholder="비밀번호를 다시 입력해주세요"
                 required
+                minlength="8"
                 class="input__pw__confirm"
               />
               <button class="eye__icon">
@@ -89,7 +91,7 @@
             <span>이미 회원이신가요?</span>
             <a href="/page/login.html">로그인</a>
           </div>
-        </form>
+        </div>
       </div>
     </section>
     <div class="login__popup__bg" style="display: none">

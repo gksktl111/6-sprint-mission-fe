@@ -1,5 +1,5 @@
-const idInput = document.querySelector('.input-email');
-const pwInput = document.querySelector('.input-pw');
+const idInput = document.querySelector('.input__email');
+const pwInput = document.querySelector('.input__pw');
 const emailValidationMessage = document.querySelector('.email');
 const pwValidationMessage = document.querySelector('.pw');
 const loginButton = document.querySelector('.login__button');
@@ -66,7 +66,7 @@ loginButton.addEventListener('click', () => {
 
   if (user) {
     console.log('로그인 성공');
-    window.location.href = '/items.html';
+    window.location.href = '/page/items.html';
   } else {
     console.log('로그인 실패');
     showPopup('비밀번호가 일치하지 않습니다.');

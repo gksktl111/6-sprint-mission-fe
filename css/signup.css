@@ -105,9 +105,9 @@ section {
   display: block;
 }
 
-.input__container:has(.input-email:valid):has(.input-pw:valid):has(
-    .input-pw-confirm:valid
-  ):has(.input-nickname:valid)
+.input__container:has(.input__email:valid):has(.input__pw:valid):has(
+    .input__pw__confirm:valid
+  ):has(.input__nickname:valid)
   .signup__button {
   background-color: var(--primary-color);
   cursor: pointer;

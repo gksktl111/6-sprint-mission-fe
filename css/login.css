@@ -84,12 +84,12 @@ section {
 }
 
 /* 검색 */
-.password-wrapper {
+.password__wrapper {
   position: relative;
   display: flex;
 }
 
-.password-wrapper button {
+.password__wrapper button {
   position: absolute;
   right: 0;
   top: 50%;
@@ -134,7 +134,8 @@ section {
 
 /* 두 input이 모두 유효할 때만 버튼 스타일 변경 */
 /* 이부분은 검색 */
-.input__container:has(.input-email:valid):has(.input-pw:valid) .login__button {
+.input__container:has(.input__email:valid):has(.input__pw:valid)
+  .login__button {
   background-color: var(--primary-color);
   cursor: pointer;
 }
