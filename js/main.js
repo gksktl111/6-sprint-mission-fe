@@ -14,35 +14,35 @@ import {
   deleteProduct,
 } from './api/ProductService.js';
 
-// 아티클 테스트
-const aData = await getArticleList(1, 10, '');
-console.log('getArticleList 데이터 : ', aData);
+// // 아티클 테스트
+// const aData = await getArticleList(1, 10, '');
+// console.log('getArticleList 데이터 : ', aData);
 
-const aArticleData = {
-  title: '새로운 게시글',
-  content: '새로운 게시글 내용',
-  image: 'https://via.placeholder.com/150',
-};
+// const aArticleData = {
+//   title: '새로운 게시글',
+//   content: '새로운 게시글 내용',
+//   image: 'https://via.placeholder.com/150',
+// };
 
-const aTestNum = 36;
+// const aTestNum = 36;
 
-const aCreateArticleResult = await createArticle(aArticleData);
-console.log('createArticle 데이터 : ', aCreateArticleResult);
+// const aCreateArticleResult = await createArticle(aArticleData);
+// console.log('createArticle 데이터 : ', aCreateArticleResult);
 
-const aArticle = await getArticle(aTestNum);
-console.log('getArticle 데이터 : ', aArticle);
+// const aArticle = await getArticle(aTestNum);
+// console.log('getArticle 데이터 : ', aArticle);
 
-const aUpdateData = {
-  title: '수정된 제목',
-  content: '수정된 내용',
-  image: '수정된이미지URL',
-};
+// const aUpdateData = {
+//   title: '수정된 제목',
+//   content: '수정된 내용',
+//   image: '수정된이미지URL',
+// };
 
-const aUpdateArticleResult = await updateArticle(aTestNum, aUpdateData); // 123은 수정할 게시글의 ID
-console.log('수정된 게시글:', aUpdateArticleResult);
+// const aUpdateArticleResult = await updateArticle(aTestNum, aUpdateData); // 123은 수정할 게시글의 ID
+// console.log('수정된 게시글:', aUpdateArticleResult);
 
-const aDeleteResult = await deleteArticle(aTestNum);
-console.log(aDeleteResult, '게시글이 성공적으로 삭제되었습니다.');
+// const aDeleteResult = await deleteArticle(aTestNum);
+// console.log(aDeleteResult, '게시글이 성공적으로 삭제되었습니다.');
 
 // ----------------------------------------------------------------------
 
@@ -64,7 +64,7 @@ const pCreateProductResult = await createProduct(pProductData);
 console.log('createProduct 데이터 : ', pCreateProductResult);
 
 // 특정 상품 조회 테스트
-const pTestId = 28; // 실제 존재하는 상품 ID로 변경 필요
+const pTestId = 19; // 실제 존재하는 상품 ID로 변경 필요
 const pProduct = await getProduct(pTestId);
 console.log('getProduct 데이터 : ', pProduct);
 
