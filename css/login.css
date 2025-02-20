@@ -150,6 +150,8 @@ section {
   justify-content: space-between;
   align-items: center;
 
+  max-width: 400px;
+
   background-color: #e6f2ff;
 
   padding: 0 20px;
@@ -254,6 +256,10 @@ section {
   }
 
   .input__container {
+    max-width: none;
+  }
+
+  .social__login__container {
     max-width: none;
   }
 
