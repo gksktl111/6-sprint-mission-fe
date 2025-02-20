@@ -44,12 +44,6 @@ pwInput.addEventListener('focusout', () => {
   }
 });
 
-// 추후 팝업 확장가능성 고려
-function showPopup(message) {
-  popupBackground.style.display = 'flex';
-  popupMessage.textContent = message;
-}
-
 popupButton.addEventListener('click', () => {
   popupBackground.style.display = 'none';
 });
@@ -58,17 +52,17 @@ loginButton.addEventListener('click', () => {
   const email = idInput.value;
   const password = pwInput.value;
 
-  if (!email || !password) return;
+  if (!validateLoginButton()) return;
 
   const user = USER_DATA.find(
     (user) => user.email === email && user.password === password
   );
 
+  console.log(user);
+
   if (user) {
-    console.log('로그인 성공');
     window.location.href = '/page/items.html';
   } else {
-    console.log('로그인 실패');
     showPopup('비밀번호가 일치하지 않습니다.');
   }
 });
@@ -84,3 +78,23 @@ eyeIconBtn.addEventListener('click', () => {
     pwInput.type = 'password';
   }
 });
+
+function validateLoginButton() {
+  const isEmailValid =
+    idInput.value &&
+    !idInput.validity.typeMismatch &&
+    !idInput.validity.valueMissing;
+
+  const isPasswordValid = pwInput.value && pwInput.value.length >= 8;
+  loginButton.disabled = !(isEmailValid && isPasswordValid);
+
+  console.log(isEmailValid, isPasswordValid);
+
+  return isEmailValid && isPasswordValid;
+}
+
+// 추후 팝업 확장가능성 고려
+function showPopup(message) {
+  popupBackground.style.display = 'flex';
+  popupMessage.textContent = message;
+}

@@ -11,13 +11,22 @@ section {
   padding: 0 16px;
 }
 
-.logo__container {
-  position: relative;
-  top: 100px;
+.signup__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
+  padding-top: 50px;
+
+  height: 100%;
+}
+
+.logo__container {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  height: 150px;
 }
 
 .logo__container img {
@@ -31,15 +40,6 @@ section {
   font-weight: bold;
   margin-left: 20px;
   color: var(--primary-color);
-}
-
-.signup__container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  height: 100%;
 }
 
 .input__container {
@@ -142,7 +142,7 @@ section {
   border-radius: 8px;
 }
 
-.social__login__container div {
+.social__login__container > div {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -156,7 +156,7 @@ section {
   display: flex;
 }
 
-.password__wrapper button {
+.password__wrapper > div {
   position: absolute;
   right: 0;
   top: 50%;
@@ -170,6 +170,13 @@ section {
   cursor: pointer;
 
   color: #979797;
+}
+
+.password__wrapper > div > i {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .input__pw,
@@ -247,7 +254,7 @@ section {
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0 0.3s ease;
 }
 
 .login__popup__container button:hover {
@@ -258,6 +265,7 @@ section {
 @media screen and (min-width: 744px) {
   section {
     width: 520px;
+    padding: 0;
   }
 
   .login__popup__container {

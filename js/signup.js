@@ -66,12 +66,6 @@ passwordConfirmInput.addEventListener('focusout', () => {
   }
 });
 
-// 팝업 표시 함수
-function showPopup(message) {
-  popupBackground.style.display = 'flex';
-  popupMessage.textContent = message;
-}
-
 // 팝업 닫기
 popupButton.addEventListener('click', () => {
   popupBackground.style.display = 'none';
@@ -98,26 +92,43 @@ eyeIcons.forEach((icon) => {
 
 // 회원가입 버튼 클릭 이벤트
 signupButton.addEventListener('click', () => {
-  // 인풋이 하나라도 비어있으면 버튼 비활성화
-  if (
-    !emailInput.value ||
-    !nicknameInput.value ||
-    !passwordInput.value ||
-    !passwordConfirmInput.value
-  )
+  if (!validateSignupButton()) {
     return;
+  }
 
   if (USER_DATA.find((user) => user.email === emailInput.value)) {
     showPopup('사용중인 이메일입니다.');
     return;
   }
 
-  // 회원가입 성공
-  console.log('회원가입 성공', {
-    email: emailInput.value,
-    nickname: nicknameInput.value,
-    password: passwordInput.value,
-  });
-
   window.location.href = '/index.html';
 });
+
+function validateSignupButton() {
+  const isEmailValid =
+    emailInput.value &&
+    !emailInput.validity.typeMismatch &&
+    !emailInput.validity.valueMissing;
+
+  const isNicknameValid = nicknameInput.value;
+
+  const isPasswordValid =
+    passwordInput.value && passwordInput.value.length >= 8;
+
+  const isPasswordConfirmValid =
+    passwordConfirmInput.value &&
+    passwordConfirmInput.value === passwordInput.value;
+
+  signupButton.disabled = !(
+    isEmailValid &&
+    isNicknameValid &&
+    isPasswordValid &&
+    isPasswordConfirmValid
+  );
+}
+
+// 팝업 표시 함수
+function showPopup(message) {
+  popupBackground.style.display = 'flex';
+  popupMessage.textContent = message;
+}

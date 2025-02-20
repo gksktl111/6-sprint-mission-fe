@@ -11,13 +11,22 @@ section {
   padding: 0 16px;
 }
 
-.logo__container {
-  position: relative;
-  top: 100px;
+.login__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
+  height: 100%;
+
+  padding-top: 50px;
+}
+
+.logo__container {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  height: 150px;
 }
 
 .logo__container img {
@@ -35,15 +44,6 @@ section {
   color: var(--primary-color);
 }
 
-.login__container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  height: 100%;
-}
-
 .input__container {
   display: flex;
   flex-direction: column;
@@ -52,6 +52,8 @@ section {
   max-width: 400px;
 
   gap: 20px;
+
+  margin-bottom: 20px;
 }
 
 .input__box {
@@ -153,6 +155,8 @@ section {
   padding: 0 20px;
 
   border-radius: 8px;
+
+  margin-bottom: 20px;
 }
 
 .social__login__container div {
@@ -246,6 +250,7 @@ section {
 @media screen and (min-width: 744px) {
   section {
     width: 520px;
+    padding: 0;
   }
 
   .input__container {
