@@ -1,280 +1,33 @@
-# FSD 아키텍쳐
+# 프로젝트 소개
 
-## 1. app 폴더
+- 판다마켓 리액트 버전입니다. 이번에 리액트 프로젝트를 하면서 전부터 써보고 싶었던 **FSD** 아키텍쳐 구조를 써볼려고 합니다.
 
-- 역할 : 애플리케이션의 “루트” 레벨에서 전역 설정과 제공자(Provider)를 등록하는 곳입니다.
-- **포함 내용:**
-  - 브라우저 라우터 설정
-  - 전역 상태 관리 라이브러리(리덕스, 리액트 쿼리 등)
-  - 테마, i18n, 전역 스타일 등 애플리케이션 전체에서 사용하는 설정 및 컨텍스트
-- 목적:앱 전체에 영향을 미치는 설정과 컴포넌트를 한 곳에서 관리해 초기 진입점과 공통 인프라를 구성합니다. 다른
+- [FSD 아키텍쳐 공식문서](https://feature-sliced.design/kr/docs/get-started/overview)
 
----
+## 아키텍쳐 선정 이유
 
-## 2. pages 폴더
+- 이전 리액트 프로젝트에서 폴더구조를 잘 짜지 못해 프로젝트 관리가 어려웠습니다. 예시로 내가 임포트 해온 파일이 어디에 있는지 해당 컴포넌트는 어느 페이지에서 어떤 기능을 하는건지 폴더구조만 봐서는 알아보기 힘든 지경이였습니다. 이에 이번 프로젝트에선 폴더 구조를 확실히 잡고 명확한 이유를 가지고 프로젝트를 진행해보고 싶었습니다.
 
-- **역할 :** 라우터 경로에 따른 “페이지” 단위의 컴포넌트를 구성합니다.
-- **포함 내용:**
-  - 각 URL 경로에 대응하는 컨테이너 컴포넌트
-  - 페이지 전환 및 레이아웃 조정 관련 로직
-- 목적:사용자의 URL 접근에 따라 개별 페이지 단위로 로직과 UI를 분리, 독립적인 관리가 가능하도록 합니다.
+# 폴더 구조 소개
 
----
+- 우선 FSD 아키텍쳐의 숙련도가 낮은 관계로 app, pages, shared 3개의 폴더로만 구성했습니다.
+- FSD 아키텍쳐는 폴더의 이름에 제한이 없으나 우선 공식문서에 있는 이름 규칙을 준수했습니다.
+- 기본적으로 레이어 - 슬라이스 세그먼트 라는 3단계의 폴더구조를 이룹니다
+- 세그먼트 에선 ui, model, api의 폴더로만 구성했습니다 이는 공식 문서에서의 권장사항입니다.
 
-## 3. shared 폴더
+- **ui** : 파일의 내용은 사용자와 직접 상호작용하는 부분으로, 컴포넌트들이 포함됩니다. 일반적으로 버튼, 폼, 입력창, 리스트 등의 UI 요소들이 여기에 해당합니다. 이 레이어는 화면을 구성하는 시각적 요소들이 들어갑니다.
+- **model** : 파일의 내용은 비즈니스 로직을 처리합니다. api에서 가져온 데이터를 처리하거나 데이터를 가공하는 로직이
+  들어갑니다.
+- **api** : 파일의 내용은 서버와의 통신을 담당합니다. API 호출, 데이터 fetching, 혹은 비즈니스 로직과 관련된 데이터를 처리하는 곳입니다. 여기서 중요한 점은 클라이언트와 서버 사이의 상호작용을 관리하는 부분으로, API 호출, 응답 처리, 에러 핸들링 등을 포함합니다.
 
-- 역할:여러 페이지나 기능에서 공통적으로 사용하는 “재사용 가능한” 코드들을 모아둡니다.
-- **포함 내용:**
-  - 커스텀 훅 (Custom Hooks)
-  - 타입 정의 (Typing)
-  - 유틸리티 함수 (Utils)
-  - 공통 상수 및 헬퍼 등
-- 목적:중복을 줄이고, 다양한 영역에서 사용할 수 있는 범용 로직 및 유틸리티를 한 곳에 집중시켜 유지보수를 용이하게 합니다.
+## app
 
----
+- 전역 컴포넌트를 관리합니다 예시로 라우팅, 진입점(App.tsx), 전역 스타일, 프로바이더 등이 있습니다.
 
-## 4. entities 폴더
+## pages
 
-- 역할:도메인(비즈니스) 단위의 “개별 엔티티”에 대한 컴포넌트와 관련 로직을 관리합니다.
-- **포함 내용:**
-  - 핵심 도메인 객체(예: User, Product 등)와 관련된 UI 컴포넌트
-  - 도메인 모델 및 비즈니스 로직의 일부 구현
-- 목적:애플리케이션의 핵심 도메인을 기준으로 구성 요소들을 분리하여, 도메인별 재사용과 독립적인 테스트가 가능하도록 설계합니다.
+- 전체 페이지를 관리합니다. 각 페이지 슬라이스(pages의 하위 폴더)는 기본적으로 하위의 세그먼트(각 슬라이스의 하위 폴더) 에서만 임포트 가능합니다. **그러나** shared 폴더에 있는 공용 컴포넌트나 유틸리티 함수는 임포트 가능합니다.
 
----
+## shared
 
-## 5. features 폴더
-
-- 역할:특정 기능(Feature) 단위로 “비즈니스 로직과 상태 관리”를 담당합니다.
-- **포함 내용:**
-  - 기능별 데이터 처리 로직 및 상태 관리 (ex. 사용자 인증, 데이터 필터링 등)
-  - 해당 기능에 국한된 UI 컴포넌트 (하지만 entities와 달리 도메인보다는 기능 단위로 분리)
-- **목적:**단일 기능 내에서 비즈니스 로직, 상태, 그리고 UI가 밀접하게 결합되어 있어, 기능별 모듈화와 독립적인 개발 및 확장이 가능하도록 합니다.
-
-## 요약
-
-React FSD 아키텍처는 **관심사의 분리(Separation of Concerns)**, **재사용성**, **유지보수성**에 초점을 맞춥니다.
-
-- **app**은 전역 설정과 초기 인프라를,
-- **pages**는 URL에 따른 페이지 단위의 분리를,
-- **shared**는 여러 곳에서 공통으로 사용하는 유틸리티를,
-- **entities**는 도메인별 핵심 컴포넌트를,
-- **features**는 특정 기능의 데이터 및 로직을,
-
----
-
-# 폴더구조 예시
-
-## 전체 폴더 구조
-
-```
-cpp
-복사편집
-src/
-├── app/
-│   ├── App.tsx
-│   └── store.ts            // (상태 관리가 필요하면 Redux 등의 설정)
-├── pages/
-│   └── ItemsPage/
-│       └── ItemsPage.tsx   // 라우트에 따른 페이지 컴포넌트
-├── shared/
-│   ├── hooks/
-│   │   └── useFetch.ts     // API 호출 등 공통 로직의 커스텀 훅
-│   ├── utils/
-│   │   └── formatPrice.ts  // 가격 포맷팅 등 유틸리티 함수
-│   └── typings/
-│       └── item.d.ts       // 공통 타입 정의 (Item 인터페이스)
-├── entities/
-│   └── item/
-│       └── ItemCard.tsx    // 도메인(엔티티) 관련 UI 컴포넌트
-├── features/
-│   └── itemList/
-│       └── ui/
-│           └── ItemList.tsx  // 특정 기능(아이템 리스트) 관련 UI + 로직
-└── widgets/
-    └── ItemListWidget/
-        └── ItemListWidget.tsx  // 여러 컴포넌트를 조합한 위젯 형태의 컴포넌트
-
-```
-
----
-
-## 각 폴더 및 파일 설명과 코드 예시
-
-### 1. **app 폴더**
-
-- **App.tsx:**전체 애플리케이션의 라우터와 전역 설정을 담당합니다.
-
-```tsx
-tsx;
-복사편집;
-// src/app/App.tsx
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import ItemsPage from '../pages/ItemsPage/ItemsPage';
-
-const App: React.FC = () => {
-  return (
-    <Router>
-      <Routes>
-        <Route path='/items' element={<ItemsPage />} />
-      </Routes>
-    </Router>
-  );
-};
-
-export default App;
-```
-
----
-
-### 2. **pages 폴더**
-
-- **ItemsPage.tsx:**URL 경로에 대응하는 페이지 컴포넌트로, 아이템 리스트 위젯을 포함합니다.
-
-```tsx
-tsx;
-복사편집;
-// src/pages/ItemsPage/ItemsPage.tsx
-import React from 'react';
-import ItemListWidget from '../../widgets/ItemListWidget/ItemListWidget';
-
-const ItemsPage: React.FC = () => {
-  return (
-    <div>
-      <h1>아이템 리스트 페이지</h1>
-      <ItemListWidget />
-    </div>
-  );
-};
-
-export default ItemsPage;
-```
-
----
-
-### 3. **shared 폴더**
-
-### a. **hooks** – 공통 API 호출 훅
-
-```tsx
-tsx;
-복사편집;
-// src/shared/hooks/useFetch.ts
-import { useState, useEffect } from 'react';
-
-function useFetch<T>(url: string) {
-  const [data, setData] = useState<T | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<Error | null>(null);
-
-  useEffect(() => {
-    fetch(url)
-      .then((res) => res.json())
-      .then((json) => {
-        setData(json);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError(err);
-        setLoading(false);
-      });
-  }, [url]);
-
-  return { data, loading, error };
-}
-
-export default useFetch;
-```
-
-### b. **utils** – 공통 유틸리티 함수
-
-```tsx
-tsx;
-복사편집;
-// src/shared/utils/formatPrice.ts
-export function formatPrice(price: number): string {
-  return `$${price.toFixed(2)}`;
-}
-```
-
-### c. **typings** – 공통 타입 정의
-
-```tsx
-tsx;
-복사편집;
-// src/shared/typings/item.d.ts
-export interface Item {
-  id: number;
-  name: string;
-  description: string;
-  price: number;
-  imageUrl: string;
-}
-```
-
----
-
-### 4. **entities 폴더**
-
-- **ItemCard.tsx:**도메인(엔티티)인 아이템을 시각적으로 표현하는 순수 UI 컴포넌트입니다.(여기서는 상태나 비즈니스 로직 없이 단순히 데이터를 보여주는 역할만 합니다.)
-
-```tsx
-tsx;
-복사편집;
-// src/entities/item/ItemCard.tsx
-import React from 'react';
-import { Item } from '../../shared/typings/item';
-import { formatPrice } from '../../shared/utils/formatPrice';
-
-interface ItemCardProps {
-  item: Item;
-}
-
-const ItemCard: React.FC<ItemCardProps> = ({ item }) => {
-  return (
-    <div className='item-card'>
-      <img src={item.imageUrl} alt={item.name} />
-      <h3>{item.name}</h3>
-      <p>{item.description}</p>
-      <p>{formatPrice(item.price)}</p>
-    </div>
-  );
-};
-
-export default ItemCard;
-```
-
----
-
-### 5. **features 폴더**
-
-- **ItemList.tsx:**특정 기능(아이템 리스트) 단위에서 API 호출(커스텀 훅 사용)과 데이터를 받아와서 **entities**의 `ItemCard` 컴포넌트를 조합하여 리스트를 출력합니다.
-
-```tsx
-tsx;
-복사편집;
-// src/features/itemList/ui/ItemList.tsx
-import React from 'react';
-import useFetch from '../../../shared/hooks/useFetch';
-import { Item } from '../../../shared/typings/item';
-import ItemCard from '../../../entities/item/ItemCard';
-
-const ItemList: React.FC = () => {
-  // 실제 API URL로 교체하거나 Mock 데이터를 사용할 수 있음
-  const { data, loading, error } = useFetch<Item[]>(
-    'https://api.example.com/items'
-  );
-
-  if (loading) return <p>로딩 중...</p>;
-  if (error) return <p>아이템을 불러오는데 에러가 발생했습니다.</p>;
-
-  return (
-    <div className='item-list'>
-      {data && data.map((item) => <ItemCard key={item.id} item={item} />)}
-    </div>
-  );
-};
-
-export default ItemList;
-```
+- 재사용 가능한 컴포넌트, 유틸리티 함수, 커스텀 훅, 전역 스타일, 타입, 타입스크립트 설정 등을 관리합니다. 현재 타입스크립트는 사용하지 않으므로 제외했습니다. 또한 전역 스타일은 App.tsx와 index.tsx에 설정했므로 제외했습니다.
