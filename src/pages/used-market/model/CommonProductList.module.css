@@ -141,6 +141,10 @@
     width: 330px;
   }
 
+  .register_button {
+    min-width: 120px;
+  }
+
   .order_dropdown {
     width: 120px;
     justify-content: space-between;
