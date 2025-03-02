@@ -1,0 +1,17 @@
+section {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  /* background-color: aqua; */
+
+  padding: 20px;
+}
+
+.used_market__container {
+  display: flex;
+  flex-direction: column;
+
+  width: 1200px;
+
+  gap: 40px;
+}
