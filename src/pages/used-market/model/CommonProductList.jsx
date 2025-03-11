@@ -25,6 +25,8 @@ const CommonProductList = () => {
   const [order, setOrder] = useState(ORDER_LIST[0]);
   const [totalPage, setTotalPage] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
+  const [keyword, setKeyword] = useState('');
+
   const { isMobile } = useDeviceType();
 
   useEffect(() => {
@@ -33,13 +35,14 @@ const CommonProductList = () => {
         ...COMMON_ITEM_DATA_PARAM,
         page: currentPage,
         orderBy: order === ORDER_LIST[0] ? 'favorite' : 'recent',
+        keyword: keyword,
       });
       setCommonItems(response.list);
       setTotalPage(Math.ceil(response.totalCount / PAGE_SIZE));
     };
 
     fetchBestItems();
-  }, [currentPage, order]);
+  }, [currentPage, order, keyword]);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -49,6 +52,10 @@ const CommonProductList = () => {
     setOrder(order);
     setCurrentPage(1);
     setIsOpen(false);
+  };
+
+  const handleOnChange = (e) => {
+    setKeyword(e.target.value);
   };
 
   return (
@@ -63,6 +70,8 @@ const CommonProductList = () => {
         <div className={styles.actions}>
           <input
             className={styles.search_input}
+            value={keyword}
+            onChange={handleOnChange}
             type='text'
             placeholder='검색어를 입력해주세요.'
           />
