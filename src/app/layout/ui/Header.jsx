@@ -2,7 +2,7 @@ import styles from './Header.module.css';
 import { Link, useLocation } from 'react-router-dom';
 import logo from '/img/panda_icon_big.png';
 import userIcon from '/img/user_icon.png';
-import useDeviceType from '../../../shared/hooks/useDeviceType';
+import useDeviceType from '@/shared/hooks/useDeviceType';
 
 const Header = () => {
   const location = useLocation();

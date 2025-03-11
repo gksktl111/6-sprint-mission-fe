@@ -1,8 +1,8 @@
 import styles from './Footer.module.css';
-import facebook from '../../../../public/img/ic_facebook.png';
-import twitter from '../../../../public/img/ic_twitter.png';
-import youtube from '../../../../public/img/ic_youtube.png';
-import instagram from '../../../../public/img/ic_instagram.png';
+import facebook from '/img/ic_facebook.png';
+import twitter from '/img/ic_twitter.png';
+import youtube from '/img/ic_youtube.png';
+import instagram from '/img/ic_instagram.png';
 
 const Footer = () => {
   return (
