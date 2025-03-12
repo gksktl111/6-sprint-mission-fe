@@ -1,4 +1,4 @@
-.footer__container {
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,7 +7,7 @@
   background-color: var(--footer-bg);
 }
 
-.footer__content {
+.content {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -16,28 +16,28 @@
   padding: 0 16px;
 }
 
-.footer__left {
+.left {
   color: var(--footer-text);
   font-size: 0.9rem;
 }
 
-.footer__center {
+.center {
   display: flex;
   gap: 20px;
 }
 
-.footer__center a {
+.center a {
   color: var(--footer-text);
   text-decoration: none;
   font-size: 0.9rem;
 }
 
-.footer__right {
+.right {
   display: flex;
   gap: 15px;
 }
 
-.footer__right img {
+img {
   width: 24px;
   height: 24px;
 }
