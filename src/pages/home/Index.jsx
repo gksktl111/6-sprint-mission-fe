@@ -37,7 +37,7 @@ const MAIN_SECTION_DATAS = [
 
 const Home = () => {
   return (
-    <div>
+    <main>
       <HomeBanner />
 
       {MAIN_SECTION_DATAS.map((data) => (
@@ -45,7 +45,7 @@ const Home = () => {
       ))}
 
       <HomeBottom />
-    </div>
+    </main>
   );
 };
 

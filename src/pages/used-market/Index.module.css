@@ -4,10 +4,10 @@
   justify-content: center;
   /* background-color: aqua; */
 
-  padding: 20px;
+  padding: 50px 20px;
 }
 
-.used_market__container {
+.container {
   display: flex;
   flex-direction: column;
 

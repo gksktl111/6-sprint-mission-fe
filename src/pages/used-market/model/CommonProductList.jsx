@@ -3,8 +3,8 @@ import { productFetch } from '../api/productFetch';
 import Product from '../ui/Product';
 import styles from './CommonProductList.module.css';
 import { FaCaretDown, FaSortAmountDown } from 'react-icons/fa';
-import Pagination from './Pagination';
-import useDeviceType from '../../../shared/hooks/useDeviceType';
+import useDeviceType from '@hooks/useDeviceType';
+import PaginationButton from './PaginationButton';
 
 const COMMON_ITEM_HEIGHT = 220;
 
@@ -59,7 +59,7 @@ const CommonProductList = () => {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       <div className={styles.header}>
         <div className={isMobile ? styles.mobile_title_wrapper : ''}>
           <span className={styles.title}>판매 중인 상품</span>
@@ -110,7 +110,7 @@ const CommonProductList = () => {
         ))}
       </ul>
 
-      <Pagination
+      <PaginationButton
         totalPage={totalPage}
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}

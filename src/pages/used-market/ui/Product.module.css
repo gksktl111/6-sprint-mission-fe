@@ -1,5 +1,4 @@
 .item {
-  width: 100%;
   height: 100%;
 
   margin-bottom: 40px;
@@ -9,11 +8,12 @@
 
 .image_container {
   width: 100%;
+
   overflow: hidden;
   border-radius: 10px;
 }
 
-.item img {
+.image_container > img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -23,7 +23,7 @@
   transition: transform 0.2s ease-in-out;
 }
 
-.item:hover img {
+.image_container:hover > img {
   transform: scale(1.1);
 }
 
@@ -32,17 +32,18 @@
   flex-direction: column;
   gap: 20px;
   margin-top: 20px;
-
-  /* background-color: green; */
 }
 
 .description {
-  height: 30px;
-
+  display: -webkit-box;
+  height: 32px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
   font-size: 1rem;
-
   color: rgb(65, 65, 65);
-  /* background-color: red; */
 }
 
 .price {

@@ -4,12 +4,12 @@ import CommonProductList from './model/CommonProductList';
 
 const UsedMarket = () => {
   return (
-    <section className={styles.used_market}>
-      <div className={styles.used_market__container}>
+    <main className={styles.used_market}>
+      <section className={styles.container}>
         <BestProductList />
         <CommonProductList />
-      </div>
-    </section>
+      </section>
+    </main>
   );
 };
 
