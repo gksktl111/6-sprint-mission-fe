@@ -24,7 +24,6 @@ const LINK_IMG_DATAS = [
 ];
 
 const Footer = () => {
-  console.log(LINK_IMG_DATAS);
   return (
     <footer className={styles.container}>
       <div className={styles.content}>

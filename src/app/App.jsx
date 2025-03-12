@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import Home from './../pages/home/Home';
+import Home from './../pages/home/Index';
 import Community from './../pages/community/Community';
 import UsedMarket from './../pages/used-market/Index';
 import NotFound from '../pages/error/NotFound';
