@@ -7,6 +7,7 @@ export default defineConfig({
   resolve: {
     alias: [
       { find: '@', replacement: '/src' },
+      { find: '@pages', replacement: '/src/pages' },
       { find: '@components', replacement: '/src/shared/components' },
       { find: '@hooks', replacement: '/src/shared/hooks' },
       { find: '@utils', replacement: '/src/shared/utils' },
