@@ -11,7 +11,7 @@
   display: flex;
   align-items: center;
 
-  width: 1400px;
+  width: 1200px;
   height: 70px;
 
   margin: 0 20px;
@@ -22,18 +22,18 @@
   align-items: center;
 }
 
-.header__logo img {
+.header__logo > img {
   width: 40px;
   height: 40px;
 
   object-fit: cover;
 }
 
-.header__logo span {
+.header__logo > span {
   margin-left: 10px;
   margin-top: 5px;
 
-  color: var(--primary-color);
+  color: var(--highlight-link-blue);
 
   font-size: 1.6rem;
   font-weight: bold;
@@ -46,21 +46,16 @@
   gap: 20px;
 
   margin-left: 20px;
+  color: var(--text-dark);
 }
 
-.header__nav a {
+.header__nav > a {
   font-size: 1.2rem;
-  color: rgb(75, 75, 75);
 }
 
 .nav_active {
+  color: var(--highlight-link-blue);
   font-weight: bold;
-  text-decoration: none;
-  background-image: linear-gradient(90deg, #000 0%, #000 100%);
-  background-size: 100% 2px;
-  background-repeat: no-repeat;
-  background-position: bottom;
-  padding-bottom: 2px;
 }
 
 .header__login {
@@ -74,27 +69,28 @@
 
   color: var(--text-light);
 
-  border-radius: 5px;
+  border-radius: 8px;
 }
 
-.header__login img {
+.header__login > img {
   width: 50px;
   height: 50px;
 }
 
-.header__login a {
+.header__login > a {
   font-size: 1.4rem;
   font-weight: bold;
 }
 
 @media screen and (min-width: 1200px) {
-  .header__nav {
-    gap: 30px;
-    margin-left: 40px;
-  }
-
   .header__login {
     width: 100px;
-    background-color: var(--primary-color);
+    background-color: var(--primary-color-100);
+
+    transition: background-color 0.2s ease;
+  }
+
+  .header__login:hover {
+    background-color: var(--highlight-color);
   }
 }

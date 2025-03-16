@@ -1,13 +1,12 @@
-section {
+.items {
   display: flex;
   width: 100%;
   justify-content: center;
-  /* background-color: aqua; */
 
-  padding: 20px;
+  padding: 30px 20px;
 }
 
-.used_market__container {
+.container {
   display: flex;
   flex-direction: column;
 

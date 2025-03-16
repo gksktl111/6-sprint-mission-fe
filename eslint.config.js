@@ -33,7 +33,7 @@ export default [
         'warn',
         { allowConstantExport: true },
       ],
-      // js 문법에서는 prop-types를 사용하지 않기에 비활성화함
+      // prop-types를 사용하지 않기에 비활성화함
       'react/prop-types': 'off',
     },
   },

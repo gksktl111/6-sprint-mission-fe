@@ -2,13 +2,13 @@ import styles from './Header.module.css';
 import { Link, useLocation } from 'react-router-dom';
 import logo from '/img/panda_icon_big.png';
 import userIcon from '/img/user_icon.png';
-import useDeviceType from '../../../shared/hooks/useDeviceType';
+import useDeviceType from '@/shared/hooks/useDeviceType';
 
 const Header = () => {
   const location = useLocation();
 
   const isCommunity = location.pathname === '/community';
-  const isUsedMarket = location.pathname === '/used-market';
+  const isItems = location.pathname === '/items';
 
   const { isTablet } = useDeviceType();
 
@@ -26,10 +26,7 @@ const Header = () => {
           >
             자유게시판
           </Link>
-          <Link
-            className={isUsedMarket ? styles.nav_active : ''}
-            to='/used-market'
-          >
+          <Link className={isItems ? styles.nav_active : ''} to='/items'>
             중고마켓
           </Link>
         </nav>

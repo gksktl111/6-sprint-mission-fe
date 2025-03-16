@@ -8,9 +8,9 @@
 
 .pagination_button {
   padding: 8px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--border-light);
   border-radius: 50%;
-  background-color: white;
+  background-color: var(--bg-light);
   cursor: pointer;
 }
 
@@ -31,13 +31,13 @@
   font-size: 1rem;
 
   border-radius: 50%;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--border-light);
 
   cursor: pointer;
 }
 
 .pagination_number.active {
-  color: white;
-  background-color: var(--primary-color);
+  color: var(--text-light);
+  background-color: var(--primary-color-100);
   border-radius: 50%;
 }

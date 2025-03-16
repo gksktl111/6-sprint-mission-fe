@@ -1,7 +1,7 @@
-import styles from './Pagination.module.css';
+import styles from './PaginationButton.module.css';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
-const Pagination = ({ totalPage, currentPage, setCurrentPage }) => {
+const PaginationButton = ({ totalPage, currentPage, setCurrentPage }) => {
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
@@ -70,4 +70,4 @@ const Pagination = ({ totalPage, currentPage, setCurrentPage }) => {
   );
 };
 
-export default Pagination;
+export default PaginationButton;
