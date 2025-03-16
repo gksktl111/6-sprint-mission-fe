@@ -7,7 +7,7 @@ import SignIn from '@pages/sign-in/SignIn';
 import Items from '@pages/items/Index';
 import Layout from './layout/Layout';
 import Registration from '@pages/registration/Index';
-import DetailItem from '@pages/detailItem';
+import DetailItem from '@pages/detailItem/detailItem';
 
 function App() {
   return (
